@@ -1,0 +1,15 @@
+build-HtmlToPdfLayer:
+	mkdir -p "$(ARTIFACTS_DIR)/bin"
+	cp bin/wkhtmltoimage "$(ARTIFACTS_DIR)/bin"
+	cp bin/wkhtmltopdf "$(ARTIFACTS_DIR)/bin"
+	mkdir -p "$(ARTIFACTS_DIR)/fonts"
+	cp fonts/*.* "$(ARTIFACTS_DIR)/fonts"
+	mkdir -p "$(ARTIFACTS_DIR)/fonts/dejavu"
+	cp fonts/dejavu/*.* "$(ARTIFACTS_DIR)/fonts/dejavu"
+	mkdir -p "$(ARTIFACTS_DIR)/lib"
+	cp lib/*.* "$(ARTIFACTS_DIR)/lib"
+	mkdir -p "$(ARTIFACTS_DIR)/python"
+	ls -lah python/
+	cp -r python/* "$(ARTIFACTS_DIR)/python"
+	pip install wkhtmltopdf==0.2 -t "$(ARTIFACTS_DIR)/python"
+	pip install pdfkit==1.0.0 -t "$(ARTIFACTS_DIR)/python"
